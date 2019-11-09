@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>467619485413-lt6vons3l6d1pt4lp552c1i0i8kbgevr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.467619485413-lt6vons3l6d1pt4lp552c1i0i8kbgevr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDCK92c2KyLk8P3-05p1-VJMQrytmmFoxo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>467619485413</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kateklavina.FireBaseTodo</string>
+	<key>PROJECT_ID</key>
+	<string>fir-todo-79a41</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fir-todo-79a41.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:467619485413:ios:160f821603fedb80ca260c</string>
+	<key>DATABASE_URL</key>
+	<string>https://fir-todo-79a41.firebaseio.com</string>
+</dict>
+</plist>
