@@ -10,18 +10,18 @@
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FireBaseTodo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LogInnViewController" customModule="FireBaseTodo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="tGb-jT-NeN">
-                                <rect key="frame" x="70" y="98" width="274" height="367"/>
+                                <rect key="frame" x="70" y="165" width="274" height="367"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SD7-We-jVQ">
                                         <rect key="frame" x="0.0" y="0.0" width="274" height="184"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o7m-65-z8e">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Firebase" translatesAutoresizingMaskIntoConstraints="NO" id="o7m-65-z8e">
                                                 <rect key="frame" x="0.0" y="0.0" width="274" height="97"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="97" id="WDV-Xc-y2K"/>
@@ -86,6 +86,10 @@
                                                 <state key="normal" title="Log in">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cIK-qQ-XQT"/>
+                                                    <segue destination="GhM-J3-lff" kind="show" id="CvT-xZ-2eF"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u65-dB-6gf">
                                                 <rect key="frame" x="157" y="0.0" width="117" height="30"/>
@@ -97,6 +101,9 @@
                                                 <state key="normal" title="Register">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="registerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r42-gH-L88"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -106,15 +113,77 @@
                         <color key="backgroundColor" red="0.64690259157060859" green="0.91083532333618233" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tGb-jT-NeN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Usn-nE-D7X"/>
-                            <constraint firstItem="tGb-jT-NeN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="u30-XT-lCE"/>
+                            <constraint firstItem="tGb-jT-NeN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="77" id="u30-XT-lCE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="nI2-P1-pxz"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="AE9-65-Zlb" id="e0x-Gg-Usy"/>
+                        <outlet property="paswordTextField" destination="yIq-7j-1Ot" id="6wB-Hc-8Vo"/>
+                        <outlet property="warningLabel" destination="22p-8D-Ja5" id="zWD-em-Q8c"/>
+                        <segue destination="GhM-J3-lff" kind="show" id="HbS-ID-65j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="112.5"/>
+        </scene>
+        <!--Tasks View Controller-->
+        <scene sceneID="KGh-CT-HLA">
+            <objects>
+                <viewController id="n2p-nf-oNz" customClass="TasksViewController" customModule="FireBaseTodo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lUW-T7-h8T">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fuh-1y-01L">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="fireCell" id="FWd-6A-AKH">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FWd-6A-AKH" id="gqk-Wa-8ga">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="n2p-nf-oNz" id="dJC-Ey-Fln"/>
+                                    <outlet property="delegate" destination="n2p-nf-oNz" id="h0w-VF-9d0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ir5-em-QjV" firstAttribute="bottom" secondItem="fuh-1y-01L" secondAttribute="bottom" constant="-34" id="F9O-cd-LyQ"/>
+                            <constraint firstItem="Ir5-em-QjV" firstAttribute="trailing" secondItem="fuh-1y-01L" secondAttribute="trailing" id="Zfb-gF-h7f"/>
+                            <constraint firstItem="fuh-1y-01L" firstAttribute="leading" secondItem="Ir5-em-QjV" secondAttribute="leading" id="ryS-pz-E0g"/>
+                            <constraint firstItem="fuh-1y-01L" firstAttribute="top" secondItem="Ir5-em-QjV" secondAttribute="top" id="sLn-9s-cZ4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ir5-em-QjV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9P5-L1-Ppk">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="NaB-hs-S5O">
+                            <connections>
+                                <action selector="logoutTapped:" destination="n2p-nf-oNz" id="d2J-d4-azX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="person.badge.plus.fill" catalog="system" id="Tny-am-TvH">
+                            <connections>
+                                <action selector="addItemTapped:" destination="n2p-nf-oNz" id="PY9-if-DoH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="fuh-1y-01L" id="ePo-eJ-nFL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YQD-m3-M86" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2869.5652173913045" y="112.5"/>
         </scene>
         <!--Login-->
         <scene sceneID="hLS-nj-GlS">
@@ -136,5 +205,31 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="112.5"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Tog-oS-Mqf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GhM-J3-lff" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="m0g-hu-j19"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rIR-CK-hIF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="n2p-nf-oNz" kind="relationship" relationship="rootViewController" id="lAJ-lJ-cAw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xhu-IS-Rkf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1968" y="113"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Firebase" width="1280" height="440"/>
+        <image name="person.badge.plus.fill" catalog="system" width="64" height="58"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="HbS-ID-65j"/>
+    </inferredMetricsTieBreakers>
 </document>
