@@ -23,6 +23,9 @@ class LogInnViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         warningLabel.alpha = 0
+        emailTextField.layer.cornerRadius = 6
+        paswordTextField.layer.cornerRadius = 6
+     
 
         
     }
@@ -41,6 +44,8 @@ class LogInnViewController: UIViewController {
         guard let email = emailTextField.text, let pasword = paswordTextField.text, email != "", pasword != "" else {
         displayWarningLabel(withText: "Email/Pasword incorect!")
         return
+            
+            
     }
         
         Auth.auth().signIn(withEmail: email, password: pasword){
@@ -75,6 +80,10 @@ class LogInnViewController: UIViewController {
         })
     }
     
+    
+    override func touchesBegan(_ touchesBegan: Set<UITouch>,with event: UIEvent?){
+        self.view.endEditing(true) //noņem keyborb
+    }
     
     // MARK: - Navigation
 
